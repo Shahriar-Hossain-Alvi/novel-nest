@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <div>
-            <div id="header" className="navbar">
+            <div id="header" className="navbar px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -23,7 +23,7 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl font-bold text-[#131313]">Novel Nest</a>
+                    <a className="btn btn-ghost text-3xl font-bold text-[#131313] p-0">Novel Nest</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4">

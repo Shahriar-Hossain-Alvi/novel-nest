@@ -12,6 +12,7 @@ import PagesToRead from './components/PagesToRead/PagesToRead.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Faq from './components/Faq/Faq.jsx'
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import BookDetails from './components/BookDetails/BookDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: '/FAQ',
         element: <Faq></Faq>
+      },
+      {
+        path: '/bookCard/:id',
+        element: <BookDetails></BookDetails>,
+        loader: ()=> fetch('../allBooksData.json')
       }
     ]
   },

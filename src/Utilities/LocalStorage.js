@@ -20,7 +20,6 @@ const saveWishList = id => {
 }
 
 
-
 //get stored readList in LS
 const getStoredReadList = () => {
     const storedReadList = localStorage.getItem('readList');
@@ -36,6 +35,7 @@ const saveReadList = id => {
 
     // find if the item exist in the LS
     const isExist = storedReadList.find(listId => listId === id);
+
     if(!isExist){
         storedReadList.push(id);
         localStorage.setItem('readList', JSON.stringify(storedReadList));

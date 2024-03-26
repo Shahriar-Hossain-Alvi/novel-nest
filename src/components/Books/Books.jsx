@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
+import { useLoaderData } from "react-router-dom";
 
 const Books = () => {
+    const books = useLoaderData();
     //store all books data
-    const [books, setBooks] = useState([]);
-
-    // fetch all books from api
-    useEffect(() => {
-        fetch('allBooksData.json')
-            .then(res => res.json())
-            .then(data => setBooks(data));
-    }, [])
 
     return (
         <div>

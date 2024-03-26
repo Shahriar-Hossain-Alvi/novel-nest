@@ -7,7 +7,7 @@ const Banner = () => {
             <div className="hero bg-[#1313130D] md:rounded-3xl lg:rounded-3xl py-20">
                 <div className="hero-content flex-col md:flex-row lg:flex-row-reverse lg:gap-10">
                     <div className="w-full md:w-1/2 lg:w-1/2 flex justify-center items-center">
-                        <img className="" src={banner} alt="banner-book" />
+                        <img className="max-h-[400px]" src={banner} alt="banner-book" />
                     </div>
                     <div className="w-full md:w-1/2 lg:w-1/2">
                         <h1 className="text-4xl lg:text-6xl text-[#131313] font-playfair font-bold leading-tight lg:leading-[70px] mb-12">Books to freshen up your bookshelf</h1>

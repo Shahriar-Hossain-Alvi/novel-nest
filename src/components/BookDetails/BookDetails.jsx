@@ -1,6 +1,15 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
+    // show toast
+    // const markAsReadToast = () => toast("Marked as Read");
+    // const notify = () => toast("Marked as Read");
+    // const notify = () => toast("Marked as Read");
+    // const notify = () => toast("Marked as Read");
+
     // load all books data
     const books = useLoaderData();
 
@@ -10,8 +19,43 @@ const BookDetails = () => {
 
     //get the data for the current id
     const book = books.find(b => b.bookId === idInt);
-    const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = book;
+    const { bookId, image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = book;
 
+    //state for read button control
+    const [clickedReadBtn, setClickedReadBtn] = useState(false);
+
+    const handleReadbtn = () => {
+        if (clickedReadBtn) {
+            toast.error('You have already read this book');
+        }
+        else {
+            toast('Marked As Read');
+            setClickedReadBtn(true);
+        }
+    }
+
+    //state for wishlist button control
+    const [clickedListBtn, setClickedListBtn] = useState(false);
+
+    const handleListbtn = () => {
+        if (clickedListBtn) {
+            if (clickedReadBtn) {
+                toast.error('This book is read');
+            }
+            else {
+                toast.error('Already in you wishlist');
+            }
+        }
+        else {
+            if (clickedReadBtn) {
+                toast.error('This book is read');
+            }
+            else {
+                toast('Added to your Wishlist');
+                setClickedListBtn(true);
+            }
+        }
+    }
 
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-2 mt-10 gap-12 mb-40">
@@ -34,9 +78,9 @@ const BookDetails = () => {
                     <h3 className="text-[#131313] font-bold">Review: <span className="text-[#131313B3]">{review}</span></h3>
                     <h3 className="text-[#131313] font-bold">Tag:
                         {
-                            tags.map(tag => (
+                            tags.map((tag, idx) => (
                                 <>
-                                    <span className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline ml-3">#{tag}</span>
+                                    <p key={idx} className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline ml-3">#{tag}</p>
                                 </>
                             ))
                         }
@@ -58,12 +102,10 @@ const BookDetails = () => {
                     </div>
                 </div>
                 <div className="flex gap-5">
-                    <Link>
-                        <button className="btn text-lg font-semibold bg-[#23BE0A] text-white hover:bg-transparent hover:text-[#23BE0A]">Read</button>
-                    </Link>
-                    <Link>
-                        <button className="btn text-lg font-semibold bg-[#50B1C9] text-white hover:bg-transparent hover:text-[#50B1C9]">Wishlist</button>
-                    </Link>
+                    <button onClick={handleReadbtn} className="btn text-lg font-semibold bg-[#23BE0A] text-white hover:bg-transparent hover:text-[#23BE0A]">Read</button>
+
+                    <button onClick={handleListbtn} className="btn text-lg font-semibold bg-[#50B1C9] text-white hover:bg-transparent hover:text-[#50B1C9]">Wishlist</button>
+                    <ToastContainer />
                 </div>
             </div>
         </div>

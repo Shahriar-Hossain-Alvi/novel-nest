@@ -23,7 +23,7 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl font-bold text-[#131313] p-0">Novel Nest</a>
+                    <a className="btn btn-ghost text-lg lg:text-3xl font-bold text-[#131313] p-0">Novel Nest</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4">
@@ -31,8 +31,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-3">
-                    <a className="btn text-lg font-semibold bg-[#23BE0A] text-white hover:text-[#23BE0A] hover:bg-transparent">Sign In</a>
-                    <a className="btn text-lg font-semibold text-white bg-[#59C6D2] hover:text-[#59C6D2] hover:bg-transparent">Sign Up</a>
+                    <a className="btn btn-sm md:btn-md lg:btn-md text-lg font-semibold bg-[#23BE0A] text-white hover:text-[#23BE0A] hover:bg-transparent">Sign In</a>
+                    <a className="btn btn-sm md:btn-md lg:btn-md text-lg font-semibold text-white bg-[#59C6D2] hover:text-[#59C6D2] hover:bg-transparent">Sign Up</a>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { saveWishList } from "../../Utilities/LocalStorage";
+import { saveReadList, saveWishList } from "../../Utilities/LocalStorage";
 
 const BookDetails = () => {
     // load all books data
@@ -23,7 +23,8 @@ const BookDetails = () => {
             toast.error('You have already read this book');
         }
         else {
-            toast('Marked As Read');
+            saveReadList(idInt);
+            toast('Marked As Read Successfully');
             setClickedReadBtn(true);
         }
     }

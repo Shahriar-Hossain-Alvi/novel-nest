@@ -21,9 +21,9 @@ const BookCard = ({ book }) => {
                     {/* tags */}
                     <div className="flex gap-3 pt-6">
                         {
-                            tags.map(tag => (
+                            tags.map((tag, index) => (
                                 <>
-                                    <span className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline">{tag}</span>
+                                    <span key={index} className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline">{tag}</span>
                                 </>
                             ))
                         }

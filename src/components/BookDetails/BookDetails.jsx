@@ -24,8 +24,8 @@ const BookDetails = () => {
         }
         else {
             saveReadList(idInt);
-            toast('Marked As Read Successfully');
             setClickedReadBtn(true);
+            toast('Marked As Read Successfully');
         }
     }
 
@@ -47,8 +47,8 @@ const BookDetails = () => {
             }
             else {
                 saveWishList(idInt);
-                toast('Added to your Wishlist');
                 setClickedListBtn(true);
+                toast('Added to your Wishlist');
             }
         }
     }
@@ -67,7 +67,7 @@ const BookDetails = () => {
             {/* book details description */}
             <div className="flex flex-col justify-center px-4">
                 <div className="pb-6 border-b border-[#13131326]">
-                    <h2 className="text-4xl font-bold text-[$131313] font-playfair pb-4">{book.bookName}</h2>
+                    <h2 className="text-4xl font-bold text-[#131313] font-playfair pb-4">{book.bookName}</h2>
                     <h4 className="text-xl font-medium text-[#131313CC]">By: {book.author}</h4>
                 </div>
 
@@ -77,9 +77,9 @@ const BookDetails = () => {
                     <h3 className="text-[#131313] font-bold">Review: <span className="text-[#131313B3]">{book.review}</span></h3>
                     <h3 className="text-[#131313] font-bold">Tag:
                         {
-                            book.tags.map((tag, idx) => (
+                            book.tags.map((tag, index) => (
                                 <>
-                                    <p key={idx} className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline ml-3">#{tag}</p>
+                                    <p key={index} className="btn hover:bg-[#23BE0A0D] hover:text-[#23BE0A] hover:border-[#23BE0A]  btn-sm rounded-full bg-[#23BE0A0D] text-[#23BE0A] font-medium badge-outline ml-3">#{tag}</p>
                                 </>
                             ))
                         }

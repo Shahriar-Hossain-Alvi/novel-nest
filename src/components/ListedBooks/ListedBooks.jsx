@@ -37,7 +37,7 @@ const ListedBooks = () => {
 
 
     return (
-        <div>
+        <div className='mb-32'>
             <div className='py-8 text-center bg-[#1313130D] mb-8'>
                 <h2 className='text-3xl font-bold text-[#131313]'>Books</h2>
             </div>
@@ -74,7 +74,7 @@ const ListedBooks = () => {
 
                 {/* wishlist books */}
                 <TabPanel>
-                    <div>
+                    <div className='pt-8 flex flex-col gap-6'>
                         {
                             showWishbooks.map(singleBook=><ListedWishlistBook key={singleBook.bookId} singleBook={singleBook}></ListedWishlistBook>)
                         }

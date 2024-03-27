@@ -3,8 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { FaAngleDown } from "react-icons/fa6";
 import { useLoaderData } from 'react-router-dom';
-import { getStoredReadList } from '../../Utilities/LocalStorage';
+import { getStoredReadList, getStoredWishList } from '../../Utilities/LocalStorage';
 import ListedReadBook from '../ListedReadBook/ListedReadBook';
+import ListedWishlistBook from '../ListedWishlistBook/ListedWishlistBook';
 
 
 const ListedBooks = () => {
@@ -17,15 +18,23 @@ const ListedBooks = () => {
     // get data from loader by matching stored IDs
     useEffect(() => {
         const storedReadListIds = getStoredReadList();
+        const storedWishListIds = getStoredWishList();
         if (books.length > 0) {
             const savedReadBooks = books.filter(book=> storedReadListIds.includes(book.bookId));
             setShowReadBooks(savedReadBooks);
+
+            const savedWishBooks = books.filter(book=>storedWishListIds.includes(book.bookId));
+            setShowWishBooks(savedWishBooks);
         }
     }, [])
 
-    // store data in the state
+    // store read book data in the state
     const [showReadBooks, setShowReadBooks] = useState([]);
-    console.log(showReadBooks);
+
+    // store wishlisted book data in the state
+    const [showWishbooks, setShowWishBooks] = useState([]);
+
+
 
     return (
         <div>
@@ -54,15 +63,23 @@ const ListedBooks = () => {
                     <Tab>Wishlist Books</Tab>
                 </TabList>
 
+                {/* read books list */}
                 <TabPanel>
-                    <h2 className='text-2xl'>Read Books: {showReadBooks.length}</h2>
-                    <div>
+                    <div className='pt-8 flex flex-col gap-6'>
                         {
                             showReadBooks.map(singleBook=> <ListedReadBook key={singleBook.bookId} singleBook={singleBook}></ListedReadBook>)
                         }
                     </div>
                 </TabPanel>
-                <TabPanel></TabPanel>
+
+                {/* wishlist books */}
+                <TabPanel>
+                    <div>
+                        {
+                            showWishbooks.map(singleBook=><ListedWishlistBook key={singleBook.bookId} singleBook={singleBook}></ListedWishlistBook>)
+                        }
+                    </div>
+                </TabPanel>
             </Tabs>
         </div>
     );

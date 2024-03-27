@@ -4,10 +4,12 @@ import { LuUsers } from "react-icons/lu";
 import { GrNotes } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 
-export const ListedReadBook = ({ singleBook }) => {
+
+const ListedWishlistBook = ({singleBook}) => {
     const { bookId, image, bookName, author, category, tags, totalPages, publisher, yearOfPublishing, rating } = singleBook;
+
     return (
-        <div className='grid grid-cols-4 border rounded-2xl p-6 gap-6'>
+       <div className='grid grid-cols-4 border rounded-2xl p-6 gap-6'>
             <div className='bg-[#1313130D] py-7 rounded-2xl'>
                 <img className='h-[230px] mx-auto' src={image} alt="book image" />
             </div>
@@ -45,10 +47,8 @@ export const ListedReadBook = ({ singleBook }) => {
     );
 };
 
-ListedReadBook.propTypes = {
+ListedWishlistBook.propTypes = {
     singleBook: PropTypes.object,
 }
 
-export default ListedReadBook;
-
-
+export default ListedWishlistBook;
